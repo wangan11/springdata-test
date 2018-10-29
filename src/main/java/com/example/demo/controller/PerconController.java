@@ -4,9 +4,7 @@ import com.example.demo.entity.Person;
 import com.example.demo.repostorty.PersonRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "person")
@@ -16,7 +14,7 @@ public class PerconController {
     private PersonRepository personRepository;
 
     @PostMapping(path = "addPerson")
-    public void addPerson(Person person) {
+    public void addPerson(@RequestBody Person person) {
         personRepository.save(person);
     }
 

@@ -45,11 +45,14 @@ public class DemoApplicationTests {
 	 */
 	@Test
 	public void test1() throws Exception {
+		Map<String,String > urlParms=new HashMap<>();
+		urlParms.put("name","addPerson");
+		urlParms.put("name2","person");
 		Person person=new Person();
 		person.setAge(1);
 		person.setName("wangan");
 		ResponseEntity<String> response = this.restTemplate.postForEntity(
-				this.base.toString() + "/person/addPerson",person,String.class);
+				this.base.toString() + "/{name2}/{name}",person,String.class,urlParms);
 		System.out.println(String.format("测试结果为：%s", response.getBody()));
 	}
 }
