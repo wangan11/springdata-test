@@ -55,4 +55,13 @@ public class DemoApplicationTests {
 				this.base.toString() + "/{name2}/{name}",person,String.class,urlParms);
 		System.out.println(String.format("测试结果为：%s", response.getBody()));
 	}
+
+	@Test
+	public void test2(){
+		Person person=new Person();
+		person.setId(9L);
+		ResponseEntity<String> stringResponseEntity = this.restTemplate.postForEntity(this.base.toString() + "/person/deletePerson", person, String.class);
+		System.out.println(stringResponseEntity.getBody());
+		System.out.println(stringResponseEntity.getHeaders());
+	}
 }

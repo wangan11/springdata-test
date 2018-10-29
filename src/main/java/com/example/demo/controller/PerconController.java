@@ -18,8 +18,10 @@ public class PerconController {
         personRepository.save(person);
     }
 
-//    @DeleteMapping(path = "deletePerson")
-//    public void deletePerson(Long id) {
-//        personRepository.delete(id);
-//    }
+    @DeleteMapping("{id}")
+    public void deletePerson(@PathVariable("id") Long id) {
+        Person person=new Person();
+        person.setId(id);
+        personRepository.delete(person);
+    }
 }
