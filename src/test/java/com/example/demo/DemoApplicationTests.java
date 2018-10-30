@@ -64,4 +64,10 @@ public class DemoApplicationTests {
 		System.out.println(stringResponseEntity.getBody());
 		System.out.println(stringResponseEntity.getHeaders());
 	}
+
+	@Test
+	public void test3(){
+		ResponseEntity<String> forEntity = this.restTemplate.getForEntity(this.base.toExternalForm() + "/person/getAll", String.class);
+		System.out.println(forEntity.getBody());
+	}
 }
